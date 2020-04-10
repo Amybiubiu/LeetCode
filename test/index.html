@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>测试leetcode呕吐</title>
+    <script>
+        var maximalSquare = function (matrix) {
+            var m = matrix.length;
+            var n = m > 0 ? matrix[0].length : 0;
+            // let arr = Array(3).fill({})
+            // var dp = Array(m + 1).fill(Array(n + 1).fill(0));
+            var dp = [];
+            for(let i = 0;i<= m;i++){
+                dp[i] = [];
+                for(let j = 0;j <= n;j++){
+                    dp[i][j] = 0;
+                }
+            }
+            var res = 0;
+            for (var i = 1; i <= m; i++) {
+                for (var j = 1; j <= n; j++) {
+                    if (matrix[i - 1][j - 1] == "1") {
+                        dp[i][j] = Math.min(Math.min(dp[i][j - 1], dp[i - 1][j]), dp[i - 1][j - 1]) + 1;
+                        res = Math.max(res, dp[i][j]);
+                    }
+                }
+            }
+            return res * res;
+        };
+        var arr = [["1", "0", "1", "0", "0"], ["1", "0", "1", "1", "1"], ["1", "1", "1", "1", "1"], ["1", "0", "0", "1", "0"]];
+        console.log(maximalSquare(arr));
+    </script>
+</head>
+
+<body></body>
+
+</html>
