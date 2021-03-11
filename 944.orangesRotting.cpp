@@ -18,6 +18,7 @@ public:
         while(!q.empty()){
             int size = q.size();
             int rotten = false;
+            // 在 while 中放一层主要是时间计算的原因 在别的多源 BFS 一般不要这层 for
             for(int i = 0; i < size; i++){
                 pair<int, int> node = q.front();
                 q.pop();
