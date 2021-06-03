@@ -10,6 +10,7 @@ public:
             int n1 = i >= 0 ? num1[i] - '0' : 0;
             int n2 = j >= 0 ? num2[j] - '0' : 0;
             int temp = n1 + n2 + add;
+            // 同样也可以通过 + 将 int -》number
             res.push_back('0' + temp%10);
             
             --i;
