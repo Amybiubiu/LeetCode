@@ -5,13 +5,16 @@ public:
         if(!m) return 0;
         int n = grid[0].size();
         if(!n) return 0;
-        vector<vector<int>> dp(m+1, vector<int>(n+1, 0));
-        
+        // vector<vector<int>> dp(m+1, vector<int>(n+1, 0));
+        vector<int> dp(n+1, 0);
         for(int i = 0; i < m; i++){
             for(int j = 0; j < n; j++){
-                dp[i+1][j+1] = grid[i][j] + max(dp[i][j+1], dp[i+1][j]);
+                // dp[i+1][j+1] = grid[i][j] + max(dp[i][j+1], dp[i+1][j]);
+                // top = dp[j+1]; left = dp[j];
+                dp[j+1] = max(dp[j], dp[j+1]) + grid[i][j];
             }
         }
-        return dp[m][n];
+        // return dp[m][n];
+        return dp[n];
     }
 };
