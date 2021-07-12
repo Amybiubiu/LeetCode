@@ -19,5 +19,4 @@ var twoSum = function(nums, target) {
         comp[target-nums[i]] = i
     }
 };
-// @lc code=end
 
