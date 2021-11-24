@@ -35,6 +35,7 @@ using namespace std;
 int main(){
     int n[] = {1, 2, 1, 1, 1,2,2,2};
     int m[] = {2, 1, 2, 2, 2,2,2,2};
+    // vector初始化
     vector<int> a(n, n+8);
     vector<int> b(m, m+8);
     cout<<minDominoRotations(a,b)<<endl;
