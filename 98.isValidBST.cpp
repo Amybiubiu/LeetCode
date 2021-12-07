@@ -1,25 +1,3 @@
-// # include<iostream>
-// using namespace std;
-
-// class Solution{
-//     public:
-//     bool comp(long a,long b){
-//         if(a>b)
-//             return true;
-//         else
-//         {
-//             return false;
-//         }
-        
-//     }
-// };
-// int main(){
-//     Solution s;
-//     bool flag = s.comp(-1,0);
-//     cout<<flag<<endl;
-    
-//     return 0;
-// }
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -53,4 +31,31 @@ public:
 //#define NULL    ((void *)0) 
 // 有时间可以看看 null和nullprt
 //还有记得考虑INT_MAX和INT_MIN的情况。
+};
+
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    long pre = LONG_MIN;
+    bool isValidBST(TreeNode* root) {
+        if(!root) return true;
+        if(!isValidBST(root->left)){
+            return false;
+        }
+        if(root->val <= pre){
+            return false;
+        }
+        pre = root->val;
+        return isValidBST(root->right);
+    }
 };

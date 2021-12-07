@@ -19,6 +19,9 @@ public:
         for(int i = 0; i < word.size(); i++){
             int s = word[i] - 'a';
             if(!son[p][s]){
+            // 用数组模拟树
+            // p 代表 root，s 代表 root->0, root->1
+            // 这样就好理解了
                 son[p][s] = ++idx;
             }
             p = son[p][s];
