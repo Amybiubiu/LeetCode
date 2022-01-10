@@ -72,6 +72,7 @@ public:
         });
         for(int i = 0; i < words.size(); i++){
             if(words[i].size() == 0) continue;
+            // 这个 if insert 我也没想到，绝了。
             if(dfs(words[i], i, 0) == 0){
                 insert(words[i].c_str());
             }
