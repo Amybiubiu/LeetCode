@@ -42,6 +42,7 @@ public:
         }
         for(int i = start; i < s.size(); i++){
             string sub = s.substr(start, i - start + 1);
+            // 感觉可以参考 472 那道题，把 substr 干掉。
             if(search(sub.c_str()) == 1){
                 path.push_back(sub);
                 dfs(s, path);
